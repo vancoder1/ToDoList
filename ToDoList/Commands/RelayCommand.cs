@@ -22,15 +22,11 @@ namespace ToDoList.Commands
 
         public bool CanExecute(object? parameter)
         {
-            return _canExecute == null || (parameter != null && _canExecute(parameter));
+            return _canExecute == null || _canExecute(parameter);
         }
 
         public void Execute(object? parameter)
         {
-            if (parameter == null)
-            {
-                throw new ArgumentNullException(nameof(parameter));
-            }
             _execute(parameter);
         }
     }
