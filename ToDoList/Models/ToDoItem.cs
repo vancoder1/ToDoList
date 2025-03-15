@@ -6,18 +6,13 @@ namespace ToDoList.Models
 {
     public class ToDoItem : INotifyPropertyChanged
     {
-        private string _title = "";
-        private bool _isCompleted;
-        private bool _isImportant;
-        private SolidColorBrush _backgroundColor = new SolidColorBrush();
+        private string _title = "New Task";
+        private bool _isCompleted = false;
+        private bool _isImportant = false;
+        private SolidColorBrush _backgroundColor = new SolidColorBrush(Colors.White);
 
         public ToDoItem()
-        {
-            Title = "New Task";
-            IsCompleted = false;
-            IsImportant = false;
-            BackgroundColor = new SolidColorBrush(Colors.White);
-        }
+        { }
 
         public string Title
         {

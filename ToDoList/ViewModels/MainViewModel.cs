@@ -160,19 +160,15 @@ namespace ToDoList.ViewModels
         private void MoveToTop(ToDoItem task)
         {
             int currentIndex = Tasks.IndexOf(task);
-            if (currentIndex > 0)
-            {
-                // Find the position just after other important tasks
-                int newPosition = 0;
-                while (newPosition < currentIndex &&
-                       Tasks[newPosition].IsImportant &&
-                       !Tasks[newPosition].IsCompleted)
-                {
-                    newPosition++;
-                }
+            if (currentIndex <= 0) return;
 
-                Tasks.Move(currentIndex, newPosition);
-            }
+            // Find first non-important or completed item's position
+            int newPosition = Tasks.TakeWhile((t, i) => i < currentIndex &&
+                                              t.IsImportant &&
+                                              !t.IsCompleted)
+                                  .Count();
+
+            Tasks.Move(currentIndex, newPosition);
         }
 
         private void ChangeBackgroundColor(object parameter)

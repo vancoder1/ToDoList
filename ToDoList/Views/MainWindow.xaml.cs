@@ -9,20 +9,6 @@ namespace ToDoList.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            // Register value converters
-            if (!Resources.Contains("BoolToVisibilityConverter"))
-            {
-                Resources.Add("BoolToVisibilityConverter", new BoolToVisibilityConverter());
-            }
-            if (!Resources.Contains("BoolToBoldConverter"))
-            {
-                Resources.Add("BoolToBoldConverter", new BoolToBoldConverter());
-            }
-            if (!Resources.Contains("BoolToStrikethroughConverter"))
-            {
-                Resources.Add("BoolToStrikethroughConverter", new BoolToStrikethroughConverter());
-            }
         }
     }
 

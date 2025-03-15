@@ -7,7 +7,9 @@
         xmlns:viewmodels="clr-namespace:ToDoList.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ToDo" Height="600" Width="800">
+        Title="ToDo"
+        Height="600" Width="900"
+        MinHeight="300" MinWidth="900">
 
     <Window.DataContext>
         <viewmodels:MainViewModel />
