@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Media;
 
 namespace ToDoList.Models
@@ -16,7 +15,7 @@ namespace ToDoList.Models
 
         public string Title
         {
-            get { return _title; }
+            get => _title;
             set
             {
                 if (_title != value)
@@ -29,7 +28,7 @@ namespace ToDoList.Models
 
         public bool IsCompleted
         {
-            get { return _isCompleted; }
+            get => _isCompleted;
             set
             {
                 if (_isCompleted != value)
@@ -42,7 +41,7 @@ namespace ToDoList.Models
 
         public bool IsImportant
         {
-            get { return _isImportant; }
+            get => _isImportant;
             set
             {
                 if (_isImportant != value)
@@ -55,7 +54,7 @@ namespace ToDoList.Models
 
         public SolidColorBrush BackgroundColor
         {
-            get { return _backgroundColor; }
+            get => _backgroundColor;
             set
             {
                 if (_backgroundColor != value)
