@@ -15,6 +15,7 @@ namespace ToDoList.ViewModels
 
         public MainViewModel()
         {
+            // Initialize the task list
             Tasks = new ObservableCollection<ToDoItem>();
 
             // Initialize Commands
@@ -50,6 +51,7 @@ namespace ToDoList.ViewModels
             }
         }
 
+        // Command defintions
         public ICommand AddTaskCommand { get; }
         public ICommand RemoveTaskCommand { get; }
         public ICommand MoveTaskUpCommand { get; }
@@ -74,6 +76,7 @@ namespace ToDoList.ViewModels
             return Tasks.Count < MAX_TASKS;
         }
 
+        // Add task method
         private void AddTask(object parameter)
         {
             var newTask = new ToDoItem();
@@ -81,11 +84,13 @@ namespace ToDoList.ViewModels
             SelectedTask = newTask;
         }
 
+        // Check if task can be edited
         private bool CanEditTask(object parameter)
         {
             return SelectedTask != null;
         }
 
+        // Remove task method
         private void RemoveTask(object parameter)
         {
             int index = Tasks.IndexOf(SelectedTask);
@@ -96,6 +101,7 @@ namespace ToDoList.ViewModels
             }
         }
 
+        // Check if task can be moved one slot up
         private bool CanMoveTaskUp(object parameter)
         {
             if (SelectedTask == null)
@@ -105,12 +111,14 @@ namespace ToDoList.ViewModels
             return index > 0 && !SelectedTask.IsCompleted;
         }
 
+        // Move task one slot up
         private void MoveTaskUp(object parameter)
         {
             int index = Tasks.IndexOf(SelectedTask);
             Tasks.Move(index, index - 1);
         }
 
+        // Check if task can be moved one slot down
         private bool CanMoveTaskDown(object parameter)
         {
             if (SelectedTask == null)
@@ -121,12 +129,14 @@ namespace ToDoList.ViewModels
             return index < Tasks.Count - 1 && !SelectedTask.IsCompleted;
         }
 
+        // Move task one slot down
         private void MoveTaskDown(object parameter)
         {
             int index = Tasks.IndexOf(SelectedTask);
             Tasks.Move(index, index + 1);
         }
 
+        // Mark task as important
         private void ToggleImportant(object parameter)
         {
             SelectedTask.IsImportant = !SelectedTask.IsImportant;
@@ -136,6 +146,7 @@ namespace ToDoList.ViewModels
             }
         }
 
+        // Move task to the top of the list
         private void MoveToTop(ToDoItem task)
         {
             int currentIndex = Tasks.IndexOf(task);
@@ -145,6 +156,7 @@ namespace ToDoList.ViewModels
             }
         }
 
+        // Change background color of the sleceted task
         private void ChangeBackgroundColor(object parameter)
         {
             if (SelectedTask != null && parameter is SolidColorBrush colorBrush)
